@@ -1,0 +1,47 @@
+{  
+  "author": "Jeff Picklyk",
+  "version": "0.1.0",
+  "license": "Apache 2.0",
+  "source": "https://github.com/jpicklyk/profile.git",
+  "name": "jpicklyk-profile",
+  "summary": "Profile module for roles and profiles",
+  
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 1.0.0"
+    },
+    {
+      "name": "puppetlabs/mcollective",
+      "version_requirement": ">=2.0.0"
+    },
+    {
+      "name": "puppetlabs/puppetdb",
+      "version_requirement": ">=4.0.0"
+    },
+    {
+      "name": "puppetlabs/firewall",
+      "version_requirement": ">=1.1.3"
+    },
+    {
+      "name": "cyberious/windows_puppet"
+      "version_requirement": ">=0.1.0"
+    },
+    {
+      "name": "ceritsc/chocolatey_sw"
+      "version_requirement": ">=0.9.1"
+    },
+    {
+      "name": "jonnyx/iesec"
+      "version_requirement": ">=0.0.1"
+    },
+    {
+      "name": "ceritsc/chocolatey_sw"
+      "version_requirement": ">=0.9.1"
+    },
+    {
+      "name": "trlinkin/domain_membership"
+      "version_requirement": ">=1.0.0"
+    }    
+  ]
+}
