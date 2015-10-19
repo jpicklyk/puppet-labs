@@ -7,4 +7,4 @@
   - puppet_role/%{puppet_role}
   - common
 :yaml:
-  :datadir: /etc/puppetlabs/puppet/code/environments/%{environment}/hieradata
+  :datadir: /etc/puppetlabs/code/environments/%{environment}/hieradata
