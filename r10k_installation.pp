@@ -3,7 +3,7 @@ Package {
 }
 
 class { 'r10k':
-  version           => '1.5.1',
+  version           => '2.0.3',
   sources           => {
     'puppet' => {
       'remote'  => 'git@github.com:jpicklyk/puppet-labs.git',
