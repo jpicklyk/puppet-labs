@@ -7,7 +7,7 @@ class { 'r10k':
   sources           => {
     'puppet' => {
       'remote'  => 'git@github.com:jpicklyk/puppet-labs.git',
-      'basedir' => "${::settings::confdir}/environments",
+      'basedir' => "/etc/puppetlabs/code/environments",
       'prefix'  => false,
     },
   },
