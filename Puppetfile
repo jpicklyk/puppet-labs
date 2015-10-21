@@ -4,6 +4,7 @@ forge 'forge.puppetlabs.com'
 mod "puppetlabs/ntp"
 mod "puppetlabs/firewall"
 mod "puppetlabs/puppetdb"
+mod "puppetlabs/postgresql"
 mod "puppetlabs/stdlib"
 mod "puppetlabs/mcollective"
 mod "puppetlabs/powershell"
