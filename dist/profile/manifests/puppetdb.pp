@@ -16,6 +16,7 @@
 
 class profile::puppetdb {
   include ::puppetdb
+  notify {'Applying profile: puppetdb':}
   #Configure puppetdb and its underlying database
   class {'puppetdb':}
   #Configure puppet master to use the puppetdb
