@@ -1,7 +1,4 @@
 class profile::puppet_master {
-  package {'puppet-server':
-    ensure => present,
-  }
 
   firewall { '100 allow agent checkins':
     dport  => 8140,
