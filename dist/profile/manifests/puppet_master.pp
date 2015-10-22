@@ -1,13 +1,14 @@
 class profile::puppet_master {
+  include profile::linuxfw
 
-  firewall { '100 allow agent checkins':
-    dport  => 8140,
+  firewall { '100 allow Puppet master access':
+    port   => '8140',
     proto  => tcp,
     action => accept,
   }
 
-  firewall { '110 sinatra web hook':
-    dport  => 80,
+  firewall { '100 allow ActiveMQ MCollective access':
+    port   => '61613',
     proto  => tcp,
     action => accept,
   }
