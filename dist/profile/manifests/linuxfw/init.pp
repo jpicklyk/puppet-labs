@@ -1,4 +1,4 @@
-class profile::linuxfw {
+class linuxfw {
   stage { 'fw_pre': before => Stage['main'];}
   stage { 'fw_post': require => Stage['main'];}
 
