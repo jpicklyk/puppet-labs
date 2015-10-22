@@ -13,6 +13,7 @@ mod "puppetlabs/postgresql"
 mod "puppetlabs/apt"
 mod "puppetlabs/concat"
 mod "puppetlabs/registry"
+mod "puppetlabs/puppetserver_gem"
 
 mod "jonnyx/iesec"
 mod "jriviere/windows_ad"
