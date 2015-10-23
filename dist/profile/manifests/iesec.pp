@@ -1,13 +1,33 @@
 class profile::iesec (
-  $admin = hiera('profile::iesec::admin', false),
-  $users  = hiera('profile::iesec::users', false)){
+  $admin = hiera('profile::iesec::admin'),
+  $users  = hiera('profile::iesec::users')){
+    include registry
     notify {'Applying profile: iesec':}
     validate_bool($admin)
     validate_bool($users)
-        
-    class {'::iesec':
-      admin_enabled => $admin,
-      users_enabled  => $users,
+
+    if $admin {
+      $iesec_admin = '1'
+    } else {
+      $iesec_admin = '0'
     }
-    contain ::iesec
+
+    if $users {
+      $iesec_users = '1'
+    } else {
+      $iesec_users = '0'
+    }
+    # Disable IE SEC for Admins
+    registry_value { 'HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+      ensure => present,
+      type  => 'dword',
+      data  => $iesec_admin,
+    }
+
+    # Disable IE SEC for Users
+    registry_value { 'HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+      ensure => present,
+      type  => 'dword',
+      data  => $iesec_users,
+    }
 }
