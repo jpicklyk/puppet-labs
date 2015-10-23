@@ -31,5 +31,5 @@ class profile::iesec (
       data  => $iesec_users,
     }
 
-  contain registry
+  contain ::registry
 }
