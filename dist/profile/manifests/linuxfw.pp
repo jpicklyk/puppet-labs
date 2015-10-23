@@ -9,7 +9,7 @@ class profile::linuxfw {
     require => Class['profile::linuxfw::pre'],
   }
   #Declare the pre and post classes to satisfy dependencies
-  class {['profile::linuxfw::pre', 'profile::linuxfw::post']:}
+  #class {['profile::linuxfw::pre', 'profile::linuxfw::post']:}
   #include the firewall class to ensure correct packages are installed
   class {'firewall':}
 }
