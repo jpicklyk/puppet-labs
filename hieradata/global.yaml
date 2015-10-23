@@ -1,4 +1,20 @@
 ---
+profile::iesec::admin: false
+profile::iesec::users: false
+windows_puppet::master: 'puppet'
+windows_puppet::version: '3.8.3'
+profile::win_default_apps::applications:
+  - "notepadplusplus.install"
+  - "wireshark"
+  - "sysinternals"
+  - "7zip.install"
+  - "GoogleChrome"
+  - "windirstat"
+  - "windowstelnet"
+
+profile::powershell::version: '4'
+profile::shutdown::time: '18:30'
+profile::shutdown::minutes: '1'
 classes:
   profile::base
 
