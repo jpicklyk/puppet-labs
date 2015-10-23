@@ -22,7 +22,7 @@ class profile::linuxfw::pre {
 
   # Allow SSH
   firewall { '100 allow ssh access':
-    port => '22',
+    dport => '22',
     proto => tcp,
     action => accept,
   }
