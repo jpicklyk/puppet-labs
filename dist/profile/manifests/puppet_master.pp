@@ -1,5 +1,4 @@
 class profile::puppet_master {
-  include profile::linuxfw
 
   firewall { '100 allow Puppet master access':
     port   => '8140',
@@ -12,4 +11,6 @@ class profile::puppet_master {
     proto  => tcp,
     action => accept,
   }
+
+  contain ::linuxfw
 }

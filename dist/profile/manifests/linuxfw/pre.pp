@@ -1,4 +1,7 @@
 class profile::linuxfw::pre {
+  Firewall {
+    require => undef,
+  }
   # Default firewall rules
   firewall { '000 accept all icmp':
     proto => 'icmp',
