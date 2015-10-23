@@ -13,10 +13,4 @@ class profile::puppet_master {
     action => accept,
   }
 
-  # Allow SSH
-  firewall { '100 allow ssh access':
-    dport => '22',
-    proto => tcp,
-    action => accept,
-  }
 }
