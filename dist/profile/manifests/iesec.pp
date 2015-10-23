@@ -1,7 +1,7 @@
 class profile::iesec (
   $admin = hiera('profile::iesec::admin'),
   $users  = hiera('profile::iesec::users')){
-    include registry
+
     notify {'Applying profile: iesec':}
     validate_bool($admin)
     validate_bool($users)
@@ -30,4 +30,6 @@ class profile::iesec (
       type  => 'dword',
       data  => $iesec_users,
     }
+
+  contain registry
 }
