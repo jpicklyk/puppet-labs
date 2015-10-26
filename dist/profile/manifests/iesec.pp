@@ -2,7 +2,7 @@ class profile::iesec (
   $administrators = undef,
   $users  = undef,
   $ensure = undef,){
-    $key_loc = "HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\"
+    $key_loc = "HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components"
     if $::operatingsystem != 'Windows' {
       fail ("Class[iesec] can only be applied to Windows systems. It cannot be used on \"${::operatingsystem}.\"")
     }
