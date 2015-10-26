@@ -4,10 +4,10 @@ Package {
 
 class {'hiera':
   hierarchy => [
-    '%{clientcert}',
-    'lab/%{puppet_lab},
+    'clientcert/%{clientcert}',
+    'lab/%{puppet_lab}',
     'puppet_role/%{puppet_role}',
-    'common',
+    'global',
   ],
-  datadir   => '/etc/puppetlabs/code/environments/%{environment}/hiera',
+  datadir   => '/etc/puppetlabs/code/environments/%{::environment}/hieradata',
 }
