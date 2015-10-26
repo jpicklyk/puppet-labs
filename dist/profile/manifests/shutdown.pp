@@ -4,7 +4,8 @@ class profile::shutdown (
 ){
   
   validate_re($time, '^(?:([0-1][0-9])|([2][0-3])):([0-5]?[0-9])$', 'Time must be in the 24h format HH:MM')
-  validate_re($minutes, '^\d+$')
+  #For some reason not working
+  #validate_re($minutes, '^\d+$')
 
   if $operatingsystem == 'Windows' {
     $seconds = $min * 60
