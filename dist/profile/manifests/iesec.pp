@@ -1,35 +1,47 @@
 class profile::iesec (
-  $admin = hiera('profile::iesec::admin'),
-  $users  = hiera('profile::iesec::users')){
-
+  $administrators = undef,
+  $users  = undef,
+  $ensure = undef,){
+    $key_loc = "HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\"
+    if $::operatingsystem != 'Windows' {
+      fail ("Class[iesec] can only be applied to Windows systems. It cannot be used on \"${::operatingsystem}.\"")
+    }
     notify {'Applying profile: iesec':}
-    validate_bool($admin)
-    validate_bool($users)
 
-    if $admin {
-      $iesec_admin = '1'
-    } else {
-      $iesec_admin = '0'
+    case $ensure {
+      'present' : {
+        $iesec_users = $users ? {
+          'off'   => 0,
+          default => 1,
+        }
+        $iesec_admin = $administrators ? {
+          'off'   => 0,
+          default => 1,
+        }
+      }
+      'absent': {
+        $iesec_admin = 0
+        $iesec_users = 0
+      }
+      default : {fail('You must specify ensure')}
     }
 
-    if $users {
-      $iesec_users = '1'
-    } else {
-      $iesec_users = '0'
-    }
+
     # Disable IE SEC for Admins
-    registry_value { 'HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
-      ensure => present,
-      type  => 'dword',
-      data  => $iesec_admin,
+    registry::value { '{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+      ensure  => present,
+      key     => $key_loc,
+      type    => 'dword',
+      data    => $iesec_admin,
     }
 
     # Disable IE SEC for Users
-    registry_value { 'HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
-      ensure => present,
-      type  => 'dword',
-      data  => $iesec_users,
+    registry::value { '{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
+      ensure  => present,
+      key     => $key_loc,
+      type    => 'dword',
+      data    => $iesec_users,
     }
 
-  contain ::registry
+
 }
