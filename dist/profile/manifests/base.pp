@@ -2,7 +2,7 @@ class profile::base {
   notify {'Applying profile: base':}
     
   if $operatingsystem == 'Windows' {
-    profile::iesec { 'IE ESC Configuration':
+    class {'profile::iesec':
       ensure => absent
     }
     contain profile::iesec
