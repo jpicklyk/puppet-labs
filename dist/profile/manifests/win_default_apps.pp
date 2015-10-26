@@ -7,6 +7,6 @@ class profile::win_default_apps(
     ensure   => installed,
     provider => 'chocolatey',
   }
-  contain chocolatey
+  #contain chocolatey
   
 }
