@@ -7,7 +7,6 @@ class profile::win_default_apps(
   package { $applications:
     ensure   => installed,
     provider => 'chocolatey',
-    require  => Class['chocolatey_sw'],
   }
   
 }
