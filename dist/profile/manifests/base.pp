@@ -10,7 +10,7 @@ class profile::base {
     contain profile::win_default_apps
     #contain profile::software_share
     #Ensure chocolatey is installed and configured
-    contain chocolatey
+    contain ::chocolatey
     contain profile::powershell
     contain profile::shutdown
     
