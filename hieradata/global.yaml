@@ -14,7 +14,7 @@ profile::win_default_apps::applications:
 
 profile::powershell::version: '4'
 profile::shutdown::time: '18:30'
-profile::shutdown::minutes: '1'
+profile::shutdown::minutes: 1
 classes:
   profile::base
 
