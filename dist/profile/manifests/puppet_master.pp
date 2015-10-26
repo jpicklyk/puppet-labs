@@ -13,10 +13,6 @@ class profile::puppet_master {
     action  => accept,
   }
 
-  firewall { '100 allow puppetdb connection':
-    dport   => '8081',
-    proto   => tcp,
-    action  => accept,
-  }
+  include profile::puppetdb
 
 }

@@ -1,18 +1,4 @@
-# == Class: profile::puppetdb
-#
-# PuppetDB profile
-#
-# === Parameters
-#
-# None
-#
-# === Variables
-#
-# None
-#
-# === Examples
-#
-#  include profile::puppetdb
+
 
 class profile::puppetdb {
   #include ::puppetdb
@@ -27,5 +13,8 @@ class profile::puppetdb {
   #Configure puppetdb and its underlying database
   class {'puppetdb':}
   #Configure puppet master to use the puppetdb
-  class { 'puppetdb::master::config':}
+  class { 'puppetdb::master::config':
+    puppetdb_server => 'puppet',
+  }
+  contain puppetdb
 }
