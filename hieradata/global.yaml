@@ -1,4 +1,5 @@
 ---
+profile::puppetdb::server_name: 'puppet'
 profile::iesec::admin: false
 profile::iesec::users: false
 windows_puppet::master: 'puppet'

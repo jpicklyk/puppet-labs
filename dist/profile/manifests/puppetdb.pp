@@ -1,6 +1,8 @@
 
 
-class profile::puppetdb {
+class profile::puppetdb(
+  $server_name = undef
+) {
   #include ::puppetdb
   notify {'Applying profile: puppetdb':}
 
@@ -9,12 +11,17 @@ class profile::puppetdb {
     proto  => tcp,
     action => accept,
   }
+  if $server_name {
+    $_puppetdb = $server_name
+  } else {
+    $_puppetdb = 'puppetdb'
+  }
 
   #Configure puppetdb and its underlying database
   class {'puppetdb':}
   #Configure puppet master to use the puppetdb
   class { 'puppetdb::master::config':
-    puppetdb_server => 'puppet',
+    puppetdb_server => $_puppetdb,
   }
   contain puppetdb
 }
