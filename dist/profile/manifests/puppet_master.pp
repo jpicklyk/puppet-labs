@@ -3,14 +3,20 @@ class profile::puppet_master {
 
   firewall { '100 allow Puppet master access':
     dport   => '8140',
-    proto  => tcp,
-    action => accept,
+    proto   => tcp,
+    action  => accept,
   }
 
   firewall { '100 allow ActiveMQ MCollective access':
     dport   => '61613',
-    proto  => tcp,
-    action => accept,
+    proto   => tcp,
+    action  => accept,
+  }
+
+  firewall { '100 allow puppetdb connection':
+    dport   => '8081',
+    proto   => tcp,
+    action  => accept,
   }
 
 }
