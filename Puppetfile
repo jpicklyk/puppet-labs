@@ -21,7 +21,7 @@ mod "puppetlabs/reboot"
 mod "cyberious/pget"
 
 #Chocolatey
-mod "rismoney/chocolatey"
+mod "chocolatey/chocolatey"
 
 
 # Modules from Github using various references
