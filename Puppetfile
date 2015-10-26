@@ -21,7 +21,8 @@ mod "puppetlabs/reboot"
 mod "cyberious/pget"
 
 #Chocolatey
-mod "chocolatey/chocolatey"
+mod 'chocolatey/chocolatey', '1.1.2'
+mod "badgerious/windows_env"
 
 
 # Modules from Github using various references
