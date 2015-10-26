@@ -29,7 +29,6 @@ class profile::iesec (
 
     # Disable IE SEC for Admins
     registry::value { '{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
-      ensure  => present,
       key     => $key_loc,
       type    => 'dword',
       data    => $iesec_admin,
@@ -37,7 +36,6 @@ class profile::iesec (
 
     # Disable IE SEC for Users
     registry::value { '{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\IsInstalled':
-      ensure  => present,
       key     => $key_loc,
       type    => 'dword',
       data    => $iesec_users,
