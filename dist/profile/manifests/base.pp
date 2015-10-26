@@ -9,6 +9,7 @@ class profile::base {
     #contain windows_puppet
     contain profile::win_default_apps
     #contain profile::software_share
+    Package { provider => chocolatey, }
     #Ensure chocolatey is installed and configured
     contain chocolatey
     contain profile::powershell
